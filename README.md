@@ -1,35 +1,40 @@
-# TypeScript
+### Variable Types
 
-## 1. What is TypeScript?
+    - Value Types and Reference Types
 
-## 2.Your First TypeScript Program
-
-## 3.Declaring Variables
-
-## 4.Types
-
-## 5. Type Assertions
+### Type Assertion
 
 ```
-let message;
-message = "I am TypeScript and I am Lucky :)";
-let endsWithC = (<string>message).endsWith("c");
+let age:any = "12";
+let newAge = <number>age
 ```
 
-## 6.Arrow Functions
+### Tuple
 
-## 7.Interfaces
+```
+let cordinate:[number,number,string] = [1,2,"A"];
+```
 
-## 8.Classes
+```
+let cordinates:[number,number,string][]=[
+[1,2,"A"],
+[3,2,"B"],
+[6,2,"C"]
+];
+```
 
-## 9.Objects
+### Union
 
-## 10.Constructors
+### enums
 
-## 11.Access Modifiers
+### type
 
-## 12.Access Modifiers in Constructor Parameters
+### interface
 
-## 13.Properties
+### class
 
-## 14.Modules
+### class implements using interface
+
+### Inheritance
+
+### Generics
