@@ -1,22 +1,12 @@
-import React from "react";
-import Header from "./components/Header";
+import React, { FC } from "react";
+import { Person } from "./components/Person";
 
-function App() {
-  const name: string = "Nuwan";
-  const age: number = 30;
-  const isActive: boolean = true;
-
-  const getName = (name: string): number => {
-    return age;
-  };
-
+const App: FC = () => {
   return (
     <div className="App">
-      <Header title="Nuwan" color="red" />
-      {name}-{age}-{isActive && <span>ACTIVE</span>}
-      {getName("Nuwan")}
+      <Person name="Nuwan" age={30} email={"nuwan@gmail.com"} />
     </div>
   );
-}
+};
 
 export default App;
