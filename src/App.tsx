@@ -9,6 +9,8 @@ import { ChildrenTwoDemo } from "./advance-props/Child/ChildrenTwoDemo";
 import { ButtonDemo } from "./advance-props/Button/ButtonDemo";
 import { InputDemo } from "./advance-props/Input/InputDemo";
 import { StylesDemo } from "./advance-props/Styles/StylesDemo";
+import { UseStateDemo } from "./hooks/UseStateDemo";
+import { UseReducer } from "./hooks/UseReducer";
 
 export interface IAppContext {
   name: string;
@@ -53,13 +55,17 @@ const App: FC = () => {
       {/* <ButtonDemo /> */}
       {/* <InputDemo value="" onChange={(event) => console.log(event)} /> */}
 
-      <StylesDemo
+      {/*  <StylesDemo
         styles={{
           border: "5px solid blue",
           padding: "1rem",
           background: "yellow",
         }}
-      />
+      /> */}
+
+      {/* <UseStateDemo /> */}
+
+      <UseReducer />
     </div>
   );
 };
