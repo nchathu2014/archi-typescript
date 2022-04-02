@@ -1,10 +1,41 @@
-import React, { FC } from "react";
+import React, { FC, createContext } from "react";
 import { Person } from "./components/Person";
+import { Product, Status } from "./components/Product";
+import { PersonList } from "./props/PersonList";
+import { PropsDemo } from "./props/PropsDemo";
+
+export interface IAppContext {
+  name: string;
+  age: number;
+  email: string;
+  status: Status;
+}
+
+const appContextValue: IAppContext = {
+  name: "Nuwan Dasuni Mevan",
+  age: 39355,
+  email: "ndm@gmail.com",
+  status: Status.Best,
+};
+
+export const AppContext = createContext<IAppContext>(appContextValue);
+
+const nameList = [
+  { first: "Nuwan", last: "Chathuranga" },
+  { first: "Dasuni", last: "Nadeera" },
+  { first: "Mevan", last: "Gaurawa" },
+];
 
 const App: FC = () => {
   return (
     <div className="App">
-      <Person name="Nuwan" age={30} email={"nuwan@gmail.com"} />
+      {/* <AppContext.Provider value={appContextValue}>
+        <Person name="Nuwan" age={30} email={"nuwan@gmail.com"} />
+        <Product />
+      </AppContext.Provider> */}
+
+      <PropsDemo name="Nuwan C" count={10} isLogged={true} />
+      <PersonList list={nameList} />
     </div>
   );
 };
