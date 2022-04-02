@@ -2,7 +2,7 @@
 
 ## 1. Defining Component Type
 
-### FC - Functional Component
+## FC - Functional Component
 
 ```
 import React, { FC } from "react";
@@ -14,7 +14,7 @@ const App: FC = () => {
 export default App;
 ```
 
-## 2. Define Props using an interface
+## 2. Define Basic Props
 
 ```
 // string, number and boolean data types
@@ -76,15 +76,131 @@ list:{
 
 ```
 
-### 3. Events
+## 3. Define Advanced Props
+
+### Union
 
 ```
-const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
-    setCountry(event.target.value);
+<StatusDemo status={"success"} />
+
+import { FC } from "react";
+
+interface IStatusDemo {
+  status: "loading" | "success" | "error";
+}
+
+export const StatusDemo: FC<IStatusDemo> = ({ status }: IStatusDemo) => {
+  let message: string | null = null;
+  if (status === "loading") message = "Loading...";
+  if (status === "success") message = "Successful :)";
+  if (status === "error") message = "Error :(";
+  return (
+    <div>
+      <p>MESSAGE: {message}</p>
+    </div>
+  );
+};
+```
+
+### Children (String as a Children)
+
+```
+<ChildrenOneDemo>I am a Children</ChildrenOneDemo>
+
+import { FC } from "react";
+
+interface IChildrenOneDemo {
+  children: string;
+}
+export const ChildrenOneDemo: FC<IChildrenOneDemo> = (
+  props: IChildrenOneDemo
+) => {
+  return <div>{props.children}</div>;
+```
+
+### Children (React component as a Children)
+
+```
+<ChildrenTwoDemo>
+  <ChildrenOneDemo>I am another Children</ChildrenOneDemo>
+</ChildrenTwoDemo>
+
+import { FC } from "react";
+
+interface IChildrenTwoDemo {
+  children: React.ReactNode;
+}
+
+export const ChildrenTwoDemo: FC<IChildrenTwoDemo> = (
+  props: IChildrenTwoDemo
+) => {
+  return <div>{props.children}</div>;
+};
 
 ```
 
-### 4. enum
+## 3. Events
+
+## onClick Event
+
+```
+import { FC, MouseEvent } from "react";
+
+interface IButton {
+  handleClick: (event: MouseEvent<HTMLButtonElement>, id: number) => void;
+}
+export const Button: FC<IButton> = ({ handleClick }: IButton) => {
+  return (
+    <div>
+      <button onClick={(event) => handleClick(event, 1)}>Click Me</button>
+    </div>
+  );
+};
+```
+
+### onChange Event
+
+```
+import React, { FC, ChangeEvent } from "react";
+
+interface IInputDemo {
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const InputDemo: FC<IInputDemo> = (props: IInputDemo) => {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={props.value}
+        onChange={(event) => console.log(event.target.value)}
+      />
+    </div>
+  );
+};
+
+```
+
+## 4. Styles as Props
+
+```
+import { FC } from "react";
+
+interface IStylesDemo {
+  styles: React.CSSProperties;
+}
+export const StylesDemo: FC<IStylesDemo> = ({ styles }: IStylesDemo) => {
+  return (
+    <div style={{ ...styles }}>
+      <h1>I am a Component</h1>
+    </div>
+  );
+};
+```
+
+## 4. enum
 
 ```
 export enum Status {

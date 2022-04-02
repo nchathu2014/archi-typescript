@@ -3,6 +3,12 @@ import { Person } from "./components/Person";
 import { Product, Status } from "./components/Product";
 import { PersonList } from "./props/PersonList";
 import { PropsDemo } from "./props/PropsDemo";
+import { StatusDemo } from "./advance-props/Status";
+import { ChildrenOneDemo } from "./advance-props/Child/ChildrenOneDemo";
+import { ChildrenTwoDemo } from "./advance-props/Child/ChildrenTwoDemo";
+import { ButtonDemo } from "./advance-props/Button/ButtonDemo";
+import { InputDemo } from "./advance-props/Input/InputDemo";
+import { StylesDemo } from "./advance-props/Styles/StylesDemo";
 
 export interface IAppContext {
   name: string;
@@ -34,8 +40,26 @@ const App: FC = () => {
         <Product />
       </AppContext.Provider> */}
 
-      <PropsDemo name="Nuwan C" count={10} isLogged={true} />
-      <PersonList list={nameList} />
+      {/* <PropsDemo name="Nuwan C" count={10} isLogged={true} />
+      <PersonList list={nameList} /> */}
+
+      {/*  <StatusDemo status={"success"} /> */}
+
+      {/* <ChildrenOneDemo>I am a Children</ChildrenOneDemo>
+      <ChildrenTwoDemo>
+        <ChildrenOneDemo>I am another Children</ChildrenOneDemo>
+      </ChildrenTwoDemo> */}
+
+      {/* <ButtonDemo /> */}
+      {/* <InputDemo value="" onChange={(event) => console.log(event)} /> */}
+
+      <StylesDemo
+        styles={{
+          border: "5px solid blue",
+          padding: "1rem",
+          background: "yellow",
+        }}
+      />
     </div>
   );
 };
