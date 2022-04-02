@@ -11,6 +11,8 @@ import { InputDemo } from "./advance-props/Input/InputDemo";
 import { StylesDemo } from "./advance-props/Styles/StylesDemo";
 import { UseStateDemo } from "./hooks/UseStateDemo";
 import { UseReducer } from "./hooks/UseReducer";
+import { ThemeContext } from "./hooks/useContext/UseContext";
+import { Box } from "./hooks/useContext/Box";
 
 export interface IAppContext {
   name: string;
@@ -33,6 +35,17 @@ const nameList = [
   { first: "Dasuni", last: "Nadeera" },
   { first: "Mevan", last: "Gaurawa" },
 ];
+
+const theme = {
+  primary: {
+    main: "#ccc",
+    text: "#000",
+  },
+  secondary: {
+    main: "##000",
+    text: "#ccc",
+  },
+};
 
 const App: FC = () => {
   return (
@@ -65,7 +78,11 @@ const App: FC = () => {
 
       {/* <UseStateDemo /> */}
 
-      <UseReducer />
+      {/* <UseReducer /> */}
+
+      <ThemeContext>
+        <Box />
+      </ThemeContext>
     </div>
   );
 };
