@@ -19,6 +19,10 @@ import { UseRefDemo } from "./hooks/UseRefDemo";
 import { Private } from "./advance-props/Component/Private";
 import { Profile } from "./advance-props/Component/Profile";
 import { List } from "./advance-props/Generics/List";
+import { PropRestriction } from "./props/PropRestriction";
+import { TemplateLiteralDemo } from "./template-literal/TemplateLiteralDemo";
+import { CustomButton } from "./wrapping/CustomButton";
+import { CustomInput } from "./wrapping/CustomInput";
 
 export interface IAppContext {
   name: string;
@@ -87,7 +91,7 @@ const App: FC = () => {
 
       {/* <Private isLoggedIn={true} component={Profile} /> */}
 
-      <List
+      {/*   <List
         items={["Batman", "Superman", "Wonder Women"]}
         onClick={(item) => console.log(item)}
       />
@@ -101,7 +105,19 @@ const App: FC = () => {
           { id: 3, first: "EEE", last: "FFF" },
         ]}
         onClick={(item) => console.log(item)}
-      />
+      /> */}
+
+      {/* <PropRestriction value={10} isPositive />
+      <PropRestriction value={-10} isNegative />
+      <PropRestriction value={0} isZero /> */}
+
+      {/* <TemplateLiteralDemo position="center" /> */}
+
+      <CustomButton varient={"primary"} onClick={() => console.log("Clicked!")}>
+        Primary Button
+      </CustomButton>
+
+      <CustomInput />
     </div>
   );
 };
