@@ -11,8 +11,10 @@ import { InputDemo } from "./advance-props/Input/InputDemo";
 import { StylesDemo } from "./advance-props/Styles/StylesDemo";
 import { UseStateDemo } from "./hooks/UseStateDemo";
 import { UseReducer } from "./hooks/UseReducer";
-import { ThemeContext } from "./hooks/useContext/UseContext";
-import { Box } from "./hooks/useContext/Box";
+//import { ThemeContext } from "./hooks/useContext/theme context/UseContext";
+//import { Box } from "./hooks/useContext/theme context/Box";
+import { UserContext } from "./hooks/useContext/user context/UserContext";
+import { User } from "./hooks/useContext/user context/User";
 
 export interface IAppContext {
   name: string;
@@ -35,17 +37,6 @@ const nameList = [
   { first: "Dasuni", last: "Nadeera" },
   { first: "Mevan", last: "Gaurawa" },
 ];
-
-const theme = {
-  primary: {
-    main: "#ccc",
-    text: "#000",
-  },
-  secondary: {
-    main: "##000",
-    text: "#ccc",
-  },
-};
 
 const App: FC = () => {
   return (
@@ -80,9 +71,13 @@ const App: FC = () => {
 
       {/* <UseReducer /> */}
 
-      <ThemeContext>
+      {/* <ThemeContext>
         <Box />
-      </ThemeContext>
+      </ThemeContext> */}
+
+      <UserContext>
+        <User />
+      </UserContext>
     </div>
   );
 };
