@@ -15,6 +15,10 @@ import { UseReducer } from "./hooks/UseReducer";
 //import { Box } from "./hooks/useContext/theme context/Box";
 import { UserContext } from "./hooks/useContext/user context/UserContext";
 import { User } from "./hooks/useContext/user context/User";
+import { UseRefDemo } from "./hooks/UseRefDemo";
+import { Private } from "./advance-props/Component/Private";
+import { Profile } from "./advance-props/Component/Profile";
+import { List } from "./advance-props/Generics/List";
 
 export interface IAppContext {
   name: string;
@@ -75,9 +79,29 @@ const App: FC = () => {
         <Box />
       </ThemeContext> */}
 
-      <UserContext>
+      {/* <UserContext>
         <User />
-      </UserContext>
+      </UserContext> */}
+
+      {/*  <UseRefDemo /> */}
+
+      {/* <Private isLoggedIn={true} component={Profile} /> */}
+
+      <List
+        items={["Batman", "Superman", "Wonder Women"]}
+        onClick={(item) => console.log(item)}
+      />
+
+      <List items={[1, 2, 3, 4]} onClick={(item) => console.log(item)} />
+
+      <List
+        items={[
+          { id: 1, first: "AAA", last: "BBB" },
+          { id: 2, first: "CCC", last: "DDD" },
+          { id: 3, first: "EEE", last: "FFF" },
+        ]}
+        onClick={(item) => console.log(item)}
+      />
     </div>
   );
 };
